@@ -1,5 +1,5 @@
 import React from "react";
-import  ReactDOM  from "react-dom";
+import  ReactDOM  from "react-dom/client";
 
 /**
  * Header
@@ -61,7 +61,8 @@ const resArray = [{
         cuisines: "biryani",
         avgRating: 4.4,
         costforTwo: 40000,
-        deliveryTime: 36
+        deliveryTime: 36,
+        id: 1
     }
 }]
 
@@ -72,7 +73,7 @@ const Body = () => {
             <div className="restaurant-container">
                 {resArray.map((rest) => {
                     return (
-                        <RestaurantCard resData={rest} />
+                        <RestaurantCard key={rest.data.id} resData={rest} />
                     )
                 })}
             </div>
@@ -90,4 +91,4 @@ const AppLayout = () => {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<AppLayout />); 
+root.render(<AppLayout />);
